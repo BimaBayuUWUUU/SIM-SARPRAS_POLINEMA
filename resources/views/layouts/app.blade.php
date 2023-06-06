@@ -4,13 +4,14 @@
 <head>
     <meta charset="UTF-8" />
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport" />
-    <title>@yield('title') - Starter Template</title>
+    <title>@yield('title') - SIMSARPRAS</title>
 
     <!-- General CSS Files -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
           integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.css" />
 
     <!-- CSS Libraries -->
     @stack('customCSS')
@@ -50,7 +51,9 @@
 </script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.nicescroll/3.7.6/jquery.nicescroll.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.js"></script>
 <script src="{{ asset('assets/js/stisla.js') }}"></script>
+
 
 <!-- JS Libraies -->
 @stack('customJS')
@@ -58,8 +61,30 @@
 <!-- Template JS File -->
 <script src="{{ asset('assets/js/scripts.js') }}"></script>
 <script src="{{ asset('assets/js/custom.js') }}"></script>
+<script src="{{ asset('assets/js/dataTables.js') }}"></script>
+<script src="{{ asset('assets/js/dataPicker.js') }}"></script>
+<script src="{{ asset('assets/js/scriptAdmin.js') }}"></script>
 
 <!-- Page Specific JS File -->
+<script>
+    // Mendapatkan elemen dropdown
+    var wewenang = document.getElementById('wewenang');
+    // Mendapatkan elemen form tambahan
+    var additionalForm = document.getElementById('additional-form');
+
+    // Event listener untuk perubahan nilai dropdown
+    wewenang.addEventListener('change', function() {
+        // Jika nilai selected value adalah 'option2', tampilkan form tambahan
+        if (wewenang.value === '9') {
+            additionalForm.style.display = 'flex';
+        } else {
+            additionalForm.style.display = 'none';
+        }
+    });
+    if (wewenang.value === '9') {
+        additionalForm.style.display = 'flex';
+    }
+</script>
 </body>
 
 </html>
